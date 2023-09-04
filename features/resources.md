@@ -25,6 +25,8 @@ Pets are the main resource of the application. They are only yours, and you can'
 
 Vaccines are also part of the core of the application. They are all public, created and modified by administrators, and can be read by all users in order to register their pets' vaccination. A vaccine entry is exclusive for a specific pet type.
 
+Though they should be managed by administrators, every user can create and modify them as well, for experimental purposes.
+
 ```json
 {
   "name": "Acme",
