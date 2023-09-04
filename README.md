@@ -8,8 +8,6 @@ This documentation has the main purpose of helping the development of front end 
 
 Some external resources that can help you knowing the project.
 
-{% @github-files/github-code-block url="https://github.com/graduenz/whoof-aspnetcore/" %}
+{% embed url="https://github.com/graduenz/whoof-aspnetcore/" %}
 
 {% embed url="https://gui.rdnz.dev/_/labs/whoof" %}
-Labs page under project author's website
-{% endembed %}
