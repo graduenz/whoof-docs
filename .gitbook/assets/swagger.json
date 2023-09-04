@@ -1,0 +1,2050 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Whoof.Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/v1/pets/{id}": {
+      "get": {
+        "tags": [
+          "Pets"
+        ],
+        "summary": "Gets a single pet by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Pet ID",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Pets"
+        ],
+        "summary": "Updates an existing pet",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Pet ID",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Pets"
+        ],
+        "summary": "Deletes an existing pet",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Pet ID",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pets": {
+      "get": {
+        "tags": [
+          "Pets"
+        ],
+        "summary": "Gets a paginated list of pets",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The name of the pet",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "Scooby-Doo"
+            },
+            "example": "Scooby-Doo"
+          },
+          {
+            "name": "petType",
+            "in": "query",
+            "description": "The type of the pet",
+            "style": "form",
+            "schema": {
+              "$ref": "#/components/schemas/PetType"
+            },
+            "example": "Dog"
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "description": "Page index, starts from 1",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Amount of records per page",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 20
+            },
+            "example": 20
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Field used for sorting",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "id"
+            },
+            "example": "id"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Order used for sorting (asc or desc)",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "asc"
+            },
+            "example": "asc"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Full-text search clause that can match multiple fields",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "%foo%"
+            },
+            "example": "%foo%"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDtoPaginatedList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDtoPaginatedList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDtoPaginatedList"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Pets"
+        ],
+        "summary": "Creates a new pet",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pet-vaccination/{id}": {
+      "get": {
+        "tags": [
+          "PetVaccination"
+        ],
+        "summary": "Gets a single pet vaccination by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Pet vaccination ID",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PetVaccination"
+        ],
+        "summary": "Updates an existing pet vaccination",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Pet vaccination ID",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetVaccinationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetVaccinationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetVaccinationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PetVaccination"
+        ],
+        "summary": "Deletes an existing pet vaccination",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Pet vaccination ID",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pet-vaccination": {
+      "post": {
+        "tags": [
+          "PetVaccination"
+        ],
+        "summary": "Creates a new pet vaccination",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetVaccinationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetVaccinationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetVaccinationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pet-vaccination/pet/{petId}": {
+      "get": {
+        "tags": [
+          "PetVaccination"
+        ],
+        "summary": "Gets a paginated list of vaccinations of a specific pet",
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "petId",
+            "in": "query",
+            "description": "The ID of the pet",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "vaccineId",
+            "in": "query",
+            "description": "The ID of the vaccine",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "appliedAt",
+            "in": "query",
+            "description": "Exact match of when the vaccine was applied at",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "appliedAtMin",
+            "in": "query",
+            "description": "Minimum date of when the vaccine was applied at",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "appliedAtMax",
+            "in": "query",
+            "description": "Maximum date of when the vaccine was applied at",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "description": "Page index, starts from 1",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Amount of records per page",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 20
+            },
+            "example": 20
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Field used for sorting",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "id"
+            },
+            "example": "id"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Order used for sorting (asc or desc)",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "asc"
+            },
+            "example": "asc"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Full-text search clause that can match multiple fields",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "%foo%"
+            },
+            "example": "%foo%"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDtoPaginatedList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDtoPaginatedList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDtoPaginatedList"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/vaccines/{id}": {
+      "get": {
+        "tags": [
+          "Vaccines"
+        ],
+        "summary": "Gets a single vaccine by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Vaccine ID",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Vaccines"
+        ],
+        "summary": "Updates an existing vaccine",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Vaccine ID",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VaccineDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VaccineDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VaccineDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Vaccines"
+        ],
+        "summary": "Deletes an existing vaccine",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Vaccine ID",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"The specified resource was not found.","code":995}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/vaccines": {
+      "get": {
+        "tags": [
+          "Vaccines"
+        ],
+        "summary": "Gets a paginated list of vaccines",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The name of the vaccine",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "Acme"
+            },
+            "example": "Acme"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "The description of the vaccine",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "%prevents from madness%"
+            },
+            "example": "%prevents from madness%"
+          },
+          {
+            "name": "petType",
+            "in": "query",
+            "description": "The pet type which the vaccine applies to",
+            "style": "form",
+            "schema": {
+              "$ref": "#/components/schemas/PetType"
+            },
+            "example": "Dog"
+          },
+          {
+            "name": "durationMin",
+            "in": "query",
+            "description": "The minimum duration of the vaccine in days",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 30
+            },
+            "example": 30
+          },
+          {
+            "name": "durationMax",
+            "in": "query",
+            "description": "The maximum duration of the vaccine in days",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 90
+            },
+            "example": 90
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "description": "Page index, starts from 1",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Amount of records per page",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 20
+            },
+            "example": 20
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Field used for sorting",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "id"
+            },
+            "example": "id"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Order used for sorting (asc or desc)",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "asc"
+            },
+            "example": "asc"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Full-text search clause that can match multiple fields",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "example": "%foo%"
+            },
+            "example": "%foo%"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDtoPaginatedList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDtoPaginatedList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDtoPaginatedList"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Vaccines"
+        ],
+        "summary": "Creates a new vaccine",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VaccineDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VaccineDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VaccineDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaccineDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PetDto": {
+        "required": [
+          "name",
+          "petType"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The object's unique identifier",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the object was created",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Who created the object",
+            "nullable": true,
+            "readOnly": true,
+            "example": "john@doe.com"
+          },
+          "modifiedAt": {
+            "type": "string",
+            "description": "When the object was last modified",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "modifiedBy": {
+            "type": "string",
+            "description": "Who modified the object last time",
+            "nullable": true,
+            "readOnly": true,
+            "example": "john@doe.com"
+          },
+          "ownerId": {
+            "type": "string",
+            "description": "The object's owner",
+            "nullable": true,
+            "readOnly": true,
+            "example": "john@doe.com"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the pet",
+            "example": "Scooby-Doo"
+          },
+          "petType": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The type of the pet",
+            "example": "Dog"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PetDtoPaginatedList": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PetDto"
+            },
+            "description": "List of records of the current page",
+            "nullable": true
+          },
+          "pageIndex": {
+            "type": "integer",
+            "description": "Requested page index",
+            "format": "int32",
+            "example": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Requested page size",
+            "format": "int32",
+            "example": 20
+          },
+          "totalPages": {
+            "type": "integer",
+            "description": "Total amount of pages based on request configuration",
+            "format": "int32",
+            "example": 7
+          },
+          "totalCount": {
+            "type": "integer",
+            "description": "Total amount of records based on request filters",
+            "format": "int32",
+            "example": 123
+          },
+          "hasPreviousPage": {
+            "type": "boolean",
+            "description": "Indicates whether it has a previous page or not",
+            "readOnly": true,
+            "example": false
+          },
+          "hasNextPage": {
+            "type": "boolean",
+            "description": "Indicates whether it has a previous page or not",
+            "readOnly": true,
+            "example": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PetType": {
+        "enum": [
+          "Dog",
+          "Cat",
+          "Capybara",
+          "Other"
+        ],
+        "type": "string"
+      },
+      "PetVaccinationDto": {
+        "required": [
+          "appliedAt",
+          "petId",
+          "vaccineId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The object's unique identifier",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the object was created",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Who created the object",
+            "nullable": true,
+            "readOnly": true,
+            "example": "john@doe.com"
+          },
+          "modifiedAt": {
+            "type": "string",
+            "description": "When the object was last modified",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "modifiedBy": {
+            "type": "string",
+            "description": "Who modified the object last time",
+            "nullable": true,
+            "readOnly": true,
+            "example": "john@doe.com"
+          },
+          "petId": {
+            "type": "string",
+            "description": "The ID of the pet",
+            "format": "uuid"
+          },
+          "vaccineId": {
+            "type": "string",
+            "description": "The ID of the vaccine",
+            "format": "uuid"
+          },
+          "appliedAt": {
+            "type": "string",
+            "description": "When the vaccine was applied at",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PetVaccinationDtoPaginatedList": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PetVaccinationDto"
+            },
+            "description": "List of records of the current page",
+            "nullable": true
+          },
+          "pageIndex": {
+            "type": "integer",
+            "description": "Requested page index",
+            "format": "int32",
+            "example": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Requested page size",
+            "format": "int32",
+            "example": 20
+          },
+          "totalPages": {
+            "type": "integer",
+            "description": "Total amount of pages based on request configuration",
+            "format": "int32",
+            "example": 7
+          },
+          "totalCount": {
+            "type": "integer",
+            "description": "Total amount of records based on request filters",
+            "format": "int32",
+            "example": 123
+          },
+          "hasPreviousPage": {
+            "type": "boolean",
+            "description": "Indicates whether it has a previous page or not",
+            "readOnly": true,
+            "example": false
+          },
+          "hasNextPage": {
+            "type": "boolean",
+            "description": "Indicates whether it has a previous page or not",
+            "readOnly": true,
+            "example": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiceError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VaccineDto": {
+        "required": [
+          "duration",
+          "name",
+          "petType"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The object's unique identifier",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the object was created",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Who created the object",
+            "nullable": true,
+            "readOnly": true,
+            "example": "john@doe.com"
+          },
+          "modifiedAt": {
+            "type": "string",
+            "description": "When the object was last modified",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "modifiedBy": {
+            "type": "string",
+            "description": "Who modified the object last time",
+            "nullable": true,
+            "readOnly": true,
+            "example": "john@doe.com"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the vaccine",
+            "example": "Acme"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the vaccine",
+            "nullable": true,
+            "example": "Acme is a vaccine that prevents dogs from walking over water"
+          },
+          "petType": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The pet type which the vaccine applies to",
+            "example": "Dog"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "The duration of the vaccine in days",
+            "format": "int32",
+            "example": 365
+          }
+        },
+        "additionalProperties": false
+      },
+      "VaccineDtoPaginatedList": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VaccineDto"
+            },
+            "description": "List of records of the current page",
+            "nullable": true
+          },
+          "pageIndex": {
+            "type": "integer",
+            "description": "Requested page index",
+            "format": "int32",
+            "example": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Requested page size",
+            "format": "int32",
+            "example": 20
+          },
+          "totalPages": {
+            "type": "integer",
+            "description": "Total amount of pages based on request configuration",
+            "format": "int32",
+            "example": 7
+          },
+          "totalCount": {
+            "type": "integer",
+            "description": "Total amount of records based on request filters",
+            "format": "int32",
+            "example": 123
+          },
+          "hasPreviousPage": {
+            "type": "boolean",
+            "description": "Indicates whether it has a previous page or not",
+            "readOnly": true,
+            "example": false
+          },
+          "hasNextPage": {
+            "type": "boolean",
+            "description": "Indicates whether it has a previous page or not",
+            "readOnly": true,
+            "example": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
