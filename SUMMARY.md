@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Whoof](README.md)
+* [How it was developed](how-it-was-developed.md)
 * [OpenAPI Specification](openapi-specification.md)
 * [Authentication](authentication.md)
 
