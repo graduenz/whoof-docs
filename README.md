@@ -6,8 +6,13 @@ This documentation has the main purpose of helping the development of front end 
 
 ## External links
 
-Some external resources that can help you knowing the project.
+Some external resources that can help you to know the project.
+
+### GitHub repository
 
 {% embed url="https://github.com/graduenz/whoof-aspnetcore/" %}
 
+### Author website
+
 {% embed url="https://gui.rdnz.dev/_/labs/whoof" %}
+
