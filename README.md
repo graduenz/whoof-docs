@@ -14,5 +14,5 @@ Some external resources that can help you to know the project.
 
 ### Author website
 
-{% embed url="https://gui.rdnz.dev/_/labs/whoof" %}
+{% embed url="https://gui.rdnz.dev/_/labs/whoof" fullWidth="false" %}
 
