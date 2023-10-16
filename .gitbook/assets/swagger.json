@@ -394,6 +394,19 @@
               "example": "%foo%"
             },
             "example": "%foo%"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Optional list of IDs to filter the records",
+            "style": "form",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
           }
         ],
         "responses": {
@@ -842,117 +855,12 @@
       }
     },
     "/v1/pet-vaccination": {
-      "post": {
-        "tags": [
-          "PetVaccination"
-        ],
-        "summary": "Creates a new pet vaccination",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PetVaccinationDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PetVaccinationDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/PetVaccinationDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PetVaccinationDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PetVaccinationDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PetVaccinationDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceError"
-                },
-                "example": {"message":"One or more validation errors occurred.","code":994}
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceError"
-                },
-                "example": {"message":"One or more validation errors occurred.","code":994}
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceError"
-                },
-                "example": {"message":"One or more validation errors occurred.","code":994}
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceError"
-                },
-                "example": {"message":"Internal server error.","code":500}
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceError"
-                },
-                "example": {"message":"Internal server error.","code":500}
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceError"
-                },
-                "example": {"message":"Internal server error.","code":500}
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/pet-vaccination/pet/{petId}": {
       "get": {
         "tags": [
           "PetVaccination"
         ],
-        "summary": "Gets a paginated list of vaccinations of a specific pet",
+        "summary": "Gets a paginated list of pet vaccinations",
         "parameters": [
-          {
-            "name": "petId",
-            "in": "path",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
           {
             "name": "petId",
             "in": "query",
@@ -1059,6 +967,19 @@
               "example": "%foo%"
             },
             "example": "%foo%"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Optional list of IDs to filter the records",
+            "style": "form",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
           }
         ],
         "responses": {
@@ -1079,6 +1000,99 @@
                 "schema": {
                   "$ref": "#/components/schemas/PetVaccinationDtoPaginatedList"
                 }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"Internal server error.","code":500}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PetVaccination"
+        ],
+        "summary": "Creates a new pet vaccination",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetVaccinationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetVaccinationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetVaccinationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetVaccinationDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                },
+                "example": {"message":"One or more validation errors occurred.","code":994}
               }
             }
           },
@@ -1532,6 +1546,19 @@
               "example": "%foo%"
             },
             "example": "%foo%"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Optional list of IDs to filter the records",
+            "style": "form",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
           }
         ],
         "responses": {
@@ -1849,6 +1876,12 @@
             "type": "string",
             "description": "When the vaccine was applied at",
             "format": "date-time"
+          },
+          "pet": {
+            "$ref": "#/components/schemas/PetDto"
+          },
+          "vaccine": {
+            "$ref": "#/components/schemas/VaccineDto"
           }
         },
         "additionalProperties": false
