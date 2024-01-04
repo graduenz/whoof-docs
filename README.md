@@ -18,5 +18,4 @@ Some external resources can help you learn about the project.
 
 ### Author website
 
-{% embed url="https://gui.rdnz.dev/_/labs/whoof" fullWidth="false" %}
-
+{% embed url="https://gui.rdnz.dev/labs/whoof" %}

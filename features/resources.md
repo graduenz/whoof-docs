@@ -1,6 +1,6 @@
 # Resources
 
-The resources present in the Web API can be created, modified and read through HTTP requests.&#x20;
+The resources that are part of the Web API can be created, modified and read through HTTP requests.
 
 Every resource has an `id` field.
 
@@ -12,7 +12,7 @@ Every resource has an `id` field.
 
 ## Pets
 
-Pets are the main resource of the application. They are only yours, and you can't see other users' pets.
+Pets are the main resource. They are only yours, and as a user, you can't see other users' pets.
 
 ```json
 {
@@ -23,9 +23,9 @@ Pets are the main resource of the application. They are only yours, and you can'
 
 ## Vaccines
 
-Vaccines are also part of the core of the application. They are all public, created and modified by administrators, and can be read by all users in order to register their pets' vaccination. A vaccine entry is exclusive for a specific pet type.
+Vaccines are visible by all users, but created and modified by administrators. A vaccine is exclusive for a specific pet type.
 
-Though they should be managed by administrators, every user can create and modify them as well, for experimental purposes.
+> Though they should be managed by administrators, every user can create and modify them as well, for experimental purposes.
 
 ```json
 {
@@ -38,7 +38,7 @@ Though they should be managed by administrators, every user can create and modif
 
 ## Pet Vaccination
 
-Pet vaccination are entries of a given moment that a vaccine was applied to a pet. It references a pet, a vaccine and has a _timestamp with timezone_ field.
+Pet vaccination are entries representing a given moment that a vaccine was applied to a pet. It references a pet, a vaccine and has a _timestamp with timezone_ field.
 
 ```json
 {
